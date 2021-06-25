@@ -1,5 +1,5 @@
 pipeline {
-  agent none
+  agent any
   stages {
     stage('Build') {
       agent {
@@ -11,18 +11,6 @@ pipeline {
       }
       steps {
         echo 'build stage'
-      }
-    }
-
-    stage('test') {
-      agent {
-        node {
-          label 'test'
-        }
-
-      }
-      steps {
-        bat(script: 'E:\\workspace\\eclipse-workspace\\AutomationTest\\run.bat', returnStatus: true, returnStdout: true)
       }
     }
 
